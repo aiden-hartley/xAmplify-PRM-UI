@@ -1,4 +1,5 @@
 export class GodaddyDetailsDto {
+	
      data:string;
 	
 	 domainName:string;
@@ -10,4 +11,5 @@ export class GodaddyDetailsDto {
 	 type:string;
 	
 	 name:string;
+
 }
