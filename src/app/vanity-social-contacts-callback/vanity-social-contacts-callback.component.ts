@@ -64,7 +64,7 @@ export class VanitySocialContactsCallbackComponent implements OnInit {
 			this.contactService.socialContactsCallback(queryParam, domain)
 				.subscribe(
 					result => {
-						if(result.statusCode == 402){
+						if (result.statusCode == 402) {
 							this.contactService.oauthCallbackMessage = result.message;
 						}
 						localStorage.removeItem("userAlias");
@@ -73,53 +73,53 @@ export class VanitySocialContactsCallbackComponent implements OnInit {
 						if (this.callbackName == 'google') {
 							let vanityUrlFilter = localStorage.getItem('vanityUrlFilter');
 							if (vanityUrlFilter == 'true') {
-							    if(result.statusCode == 402){
-                                    this.postingMessage = result.message;
-                                }else{
-                                this.postingMessage = "isGoogleAuth";;
-                                }
-							    this.postingMessageToParentWindow(this.postingMessage);
-							}else{
+								if (result.statusCode == 402) {
+									this.postingMessage = result.message;
+								} else {
+									this.postingMessage = "isGoogleAuth";;
+								}
+								this.postingMessageToParentWindow(this.postingMessage);
+							} else {
 								this.contactService.socialProviderName = 'google';
 							}
-							
+
 						} else if (this.callbackName == 'salesforce') {
 							let vanityUrlFilter = localStorage.getItem('vanityUrlFilter');
 							if (vanityUrlFilter == 'true') {
-							    if(result.statusCode == 402){
-                                    this.postingMessage = result.message;
-                                }else{
-                                this.postingMessage = "isSalesForceAuth";;
-                                }
-                                this.postingMessageToParentWindow(this.postingMessage);
-							}else{
+								if (result.statusCode == 402) {
+									this.postingMessage = result.message;
+								} else {
+									this.postingMessage = "isSalesForceAuth";;
+								}
+								this.postingMessageToParentWindow(this.postingMessage);
+							} else {
 								this.contactService.socialProviderName = 'salesforce';
 							}
 						} else if (this.callbackName == 'zoho') {
 							let vanityUrlFilter = localStorage.getItem('vanityUrlFilter');
 							if (vanityUrlFilter == 'true') {
-								   if(result.statusCode == 402){
-	                                    this.postingMessage = result.message;
-	                                }else{
-	                                this.postingMessage = "isZohoAuth";;
-	                                }
-	                                this.postingMessageToParentWindow(this.postingMessage);
-							}else{
+								if (result.statusCode == 402) {
+									this.postingMessage = result.message;
+								} else {
+									this.postingMessage = "isZohoAuth";;
+								}
+								this.postingMessageToParentWindow(this.postingMessage);
+							} else {
 								this.contactService.socialProviderName = 'zoho';
 							}
-						} 
-						
-						if (this.currentModule === 'contacts'  && localStorage.getItem('currentPage')==='manage-contacts') {
-                            this.router.navigate(['/home/contacts/manage']);
-                        }else if (this.currentModule === 'contacts' && localStorage.getItem('currentPage')==='add-contacts'){
+						}
+
+						if (this.currentModule === 'contacts' && localStorage.getItem('currentPage') === 'manage-contacts') {
+							this.router.navigate(['/home/contacts/manage']);
+						} else if (this.currentModule === 'contacts' && localStorage.getItem('currentPage') === 'add-contacts') {
 							this.router.navigate(['/home/contacts/add']);
-						}else if (this.currentModule === 'partners') {
+						} else if (this.currentModule === 'partners') {
 							this.router.navigate(['/home/partners']);
-						} else if (this.currentModule === 'leads' && localStorage.getItem('currentPage')==='manage-leads'){
+						} else if (this.currentModule === 'leads' && localStorage.getItem('currentPage') === 'manage-leads') {
 							this.router.navigate(['/home/assignleads/manage']);
-						}else if (this.currentModule === 'leads' && localStorage.getItem('currentPage')==='add-leads'){
-                            this.router.navigate(['/home/assignleads/add']);
-                        }
+						} else if (this.currentModule === 'leads' && localStorage.getItem('currentPage') === 'add-leads') {
+							this.router.navigate(['/home/assignleads/add']);
+						}
 					},
 					error => {
 						localStorage.removeItem("userAlias");
